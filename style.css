@@ -1,0 +1,66 @@
+.maincontainer{
+  margin-right: 20%;
+  margin-left: 10%;
+}
+.leftside{
+  float: left;
+  margin-left: 20%;
+}
+.rightside{
+float: right;
+}
+img{
+    height: 250px;
+    width: 250px;
+    max-width: 100%;
+}
+.click_button{
+    background-color: cornflowerblue;
+    padding: 10px 24px;
+    border: 2px solid;
+    color: white;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+.click_button:hover{
+    background-color: red;
+    color: white;
+}
+
+.loader {
+  text-align: center;
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid #3498db;
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+    animation: spin 0.5s linear infinite;
+    margin-top: 15%;
+    margin-left: 45%;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .pagination {
+    border-radius: 8px;
+    display: inline-block;
+    background-color: white;
+  }
+  
+  .pagination a {
+    border-radius: 8px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color:red;}

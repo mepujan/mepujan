@@ -1,1 +1,112 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/><link href="/static/css/2.3fd617cd.chunk.css" rel="stylesheet"><link href="/static/css/main.f242d214.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function r(r){for(var n,l,a=r[0],f=r[1],i=r[2],c=0,s=[];c<a.length;c++)l=a[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in f)Object.prototype.hasOwnProperty.call(f,n)&&(e[n]=f[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,i||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,a=1;a<t.length;a++){var f=t[a];0!==o[f]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var a=this.webpackJsonpblood_bank=this.webpackJsonpblood_bank||[],f=a.push.bind(a);a.push=r,a=a.slice();for(var i=0;i<a.length;i++)r(a[i]);var p=f;t()}([])</script><script src="/static/js/2.2ec32c35.chunk.js"></script><script src="/static/js/main.8ed7a04c.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pujan Gautam</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  
+  <div class='loader' id="loadingContainer">
+    <h1>Loading...</h1>
+  </div>
+    <div class="maincontainer"> 
+        <div class='leftside' id="leftside" hidden>      
+            <img id="profile_image">
+            <h2 id="name"></h2>
+            <p id='username'></p>
+            <p id="email"></p>
+            <p id="followers"></p>
+            <p id="following"></p>
+            <p>
+                For more Profile Informations<br/><br/>
+                <a id="profileInfo"><button class="click_button">Click here</button></a>
+            </p>
+        </div> 
+        <div class='rightside'id='rightside' hidden>
+          <h2>My Projects</h2>
+          <small id="count"> </small>
+            <p id="repositories"></p>
+            For Detailed Repositories Informations<br/><br/>
+            <a id="repoInfo"><button class="click_button">Click here</button></a>
+            
+          </p>
+          <div class="pagination">
+            <a href="#" id="btn_prev" onclick="prevPage()" hidden>prev <-</a>
+            <a href="#" id="btn_next" onclick="nextPage()">next -></a> 
+          </div>
+          
+      </div>
+
+    </div>
+    <script>
+     
+      let current_page = 1;
+      function prevPage(){
+        document.getElementById('leftside').hidden=true
+        document.getElementById('rightside').hidden=true
+        if (current_page >1){
+          current_page--;
+          loadRepo();
+        }
+
+      }
+      function nextPage(){
+        document.getElementById('leftside').hidden=true
+        document.getElementById('rightside').hidden=true
+        current_page++;
+        loadRepo();
+      }
+        function loadRepo(){
+            if(current_page  > 1){
+            document.getElementById('btn_prev').hidden = false;
+          }
+          if(current_page == 1)
+          {
+            document.getElementById('btn_prev').hidden = true;
+          }
+          document.getElementById('repositories').innerHTML="";
+          console.log(current_page)
+          fetch("https://api.github.com/users/mepujan/repos"+"?page="+current_page)
+          .then(response => response.json())
+          .then(
+            function(data){
+              data.forEach(
+                function getName(item){
+                  document.getElementById('repositories').innerHTML+="<li>"+item['name']+"</li><br/>";
+              }
+              );
+              document.getElementById('leftside').hidden=false
+              document.getElementById('rightside').hidden=false
+              document.getElementById('loadingContainer').hidden=true
+            }
+          )
+        }
+
+        fetch('https://api.github.com/users/mepujan')
+        .then(response => response.json()).then(
+          function(data){ 
+            let repo_count="Total number of projects done: "+ data['public_repos']
+            let repo_url='https://github.com/mepujan?tab=repositories'
+            let email= data['login'] +'@gmail.com'
+            let followers=data['followers'] +' followers'
+            let following =data['following'] + ' following'
+            document.getElementById("profile_image").src=data['avatar_url']
+            document.getElementById("username").textContent=data['login']
+            document.getElementById("name").textContent=data['name']
+            document.getElementById("email").textContent=email
+            document.getElementById("followers").textContent=followers
+            document.getElementById("following").textContent=following
+            document.getElementById("profileInfo").href=data['html_url']
+            document.getElementById("repoInfo").href=repo_url
+            document.getElementById('count').textContent=repo_count
+            if(data['public_repos'] <= 30){
+              document.getElementById('btn_next').hidden = true;
+            }
+            loadRepo(); 
+          }
+        )
+    </script>
+</body>
+</html>
