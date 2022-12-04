@@ -4,7 +4,9 @@ Self-motivated and hard-working freshers seeking for an opportunity to work as a
 ## Personal Information
 Name: Pujan Gautam
 Email : <mepujan10@gmail.com>
+
 LinkedIn : [https://www.linkedin.com/in/pujangautam/](https://www.linkedin.com/in/pujangautam/)
+
 GitLab: [https://gitlab.com/mepujan](https://gitlab.com/mepujan)
 
 ## Skills
@@ -24,8 +26,11 @@ GitLab: [https://gitlab.com/mepujan](https://gitlab.com/mepujan)
 	* ReactJS
 ### Educations
 Sept 7, 2021 - Apr 23, 2023  | 	**Lambton College** , Sarnia, Canada
+
 *Computer Software and Database Development*
+
 Nov 2015 - Dec 2019 | **Academia International College** Lalitpur, Nepal
+
 *Computer Science and Information Technology*
 
 
