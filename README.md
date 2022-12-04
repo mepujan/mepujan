@@ -3,6 +3,7 @@ Self-motivated and hard-working freshers seeking for an opportunity to work as a
 
 ## Personal Information
 Name: Pujan Gautam
+
 Email : <mepujan10@gmail.com>
 
 LinkedIn : [https://www.linkedin.com/in/pujangautam/](https://www.linkedin.com/in/pujangautam/)
