@@ -1,5 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 import project1 from '../images/project_1.png';
+import project3 from '../images/Screenshot_bld_bank.png';
 
 export const Projects = () => {
     return (
@@ -24,6 +25,18 @@ export const Projects = () => {
                             <Card.Title>Driving Instructor Scheduling Web App</Card.Title>
                             <Card.Text>
                                 Used ExpressJs for the api and ReactJs for the frontend.
+                            </Card.Text>
+                            <Button href="https://github.com/mepujan/apexDriving" rel="noreferrer" target="_blank" variant="primary">More Info</Button>
+                        </Card.Body>
+                    </Card>
+
+                    <Card style={{ width: '18rem'}}>
+                        <Card.Img variant="top" src={project3} />
+                        <Card.Body>
+                            <Card.Title>BloodBank Web App</Card.Title>
+                            <Card.Text>
+                                Hospital can organize blood donation events. User and hospital can create account.
+                                And can search the blood donor in specific location.
                             </Card.Text>
                             <Button href="https://github.com/mepujan/apexDriving" rel="noreferrer" target="_blank" variant="primary">More Info</Button>
                         </Card.Body>
